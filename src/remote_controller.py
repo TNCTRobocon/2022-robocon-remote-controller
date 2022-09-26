@@ -19,9 +19,7 @@ def main():
 
     # write code=================================
     cp22 = lib.CommunicationProtocol22()
-    im920s = lib.Im920s('/dev/ttyUSB0', 19200)
     rj = lib.ReadJoyController()
-    joystick_data, button_data = rj.get_joystick_data()
     # end write data=============================
 
     while(not rospy.is_shutdown):
@@ -29,8 +27,7 @@ def main():
         # write code=============================
         if rj.check_event():
             joystick_data, button_data = rj.get_joystick_data()
-        msg = data = cp22.encode(joistick_data, button_data)
-        im920s.im920s_writef('TXDA', data)
+            msg = cp22.encode(joistick_data, button_data)
         # end write code=========================
 
         pub.publish(msg)
