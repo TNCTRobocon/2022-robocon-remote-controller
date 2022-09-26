@@ -27,7 +27,7 @@ def main():
         # write code=============================
         if rj.check_event():
             joystick_data, button_data = rj.get_joystick_data()
-            msg = cp22.encode(joistick_data, button_data)
+            msg = cp22.encode(joystick_data, button_data)
         # end write code=========================
 
         pub.publish(msg)
