@@ -54,7 +54,7 @@ class CommunicationProtocol22:
         self.__set_data(joystick, button)
         self.generate_checksum()
         send_data:int = self.STARTNUM1 << 88 | self.STARTNUM2 << 80 | self.btn1_b3 << 72 | self.btn2_b4 << 64 | self.joyrx_b5 << 56 | self.joyry_b6 << 48 | self.joylx_b7 << 40 | self.joyly_b8 << 32 | self.rt_b9 << 24 | self.lt_b10 << 16 | self.emargency_b11 << 8 | self.checksum_b12
-        print('send_data : ' + hex(send_data) + '\n')
+        print(f'send_data :{hex(send_data)} + \n')
         return send_data
 
     def decode(self, responce_data):
