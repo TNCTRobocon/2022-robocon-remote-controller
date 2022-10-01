@@ -3,6 +3,10 @@ import pygame
 
 from typing import List
 
+import os
+
+os.environ["SDL_VIDEODRIVER"] = "dummy" #video deviceが見つからないエラーの回避
+
 class ReadJoyController:
 
     def __init__(self):
