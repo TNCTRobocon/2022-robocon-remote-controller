@@ -3,6 +3,10 @@ import pygame
 
 from typing import List
 
+import os
+
+os.environ["SDL_VIDEODRIVER"] = "dummy" #video deviceが見つからないエラーの回避
+
 class ReadJoyController:
 
     def __init__(self):
@@ -13,9 +17,9 @@ class ReadJoyController:
         self.js = joystick.Joystick(0)
         self.js.init()
         self.debug_pad_data = 0
-        print("joystick: " + str(self.js.get_numaxes()) + "\n")
-        print("button: " + str(self.js.get_numbuttons()) + "\n")
-        print("hat: " + str(self.js.get_numhats()) + "\n")
+        print(f'joystick: {str(self.js.get_numaxes())}\n')
+        print(f'button: {str(self.js.get_numbuttons())}\n')
+        print(f'hat: {str(self.js.get_numhats())}\n')
         self.get_joystick()
 
     def get_joystick_data(self):
